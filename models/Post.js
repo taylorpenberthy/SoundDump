@@ -2,16 +2,13 @@ const mongoose = require('../db/connection');
 const PostSchema = new mongoose.Schema({
     title: String,
     link: String,
-    image: String,
     caption: String,
     poster: String,
     posted: 
         {
             type: mongoose.Schema.Types.String,
             ref: "User"
-        
         }
-
 });
 
 const Post = mongoose.model('Post', PostSchema);

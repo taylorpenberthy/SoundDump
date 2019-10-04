@@ -17,7 +17,6 @@ User.deleteMany({}).then(() => {
         Post.create({
             title: "Juice",
             link: "https://open.spotify.com/embed/track/0k664IuFwVP557Gnx7RhIl",
-            image: "",
             caption: "My fav song!!!",
             posted: taylor.id
         }).then(song => {
@@ -35,7 +34,6 @@ User.deleteMany({}).then(() => {
         Post.create({
             title: "Trophies",
             link: "https://open.spotify.com/embed/track/4FseJ7iZy0wbgJZjtddLSJ",
-            image: "",
             caption: "My fav song, a Trophies!!!",
             posted: lis.id
         }).then(song => {
@@ -43,6 +41,23 @@ User.deleteMany({}).then(() => {
             lis.save();
            console.log(lis.posts[0])
             console.log("created big lis");
+        });
+    })
+
+    User.create({
+        name: "Frida",
+        username: "frida123",
+        email: "frida@gmail.com"
+    }).then(frida => {
+        Post.create({
+            title: "The Less I Know The Better",
+            link: "https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ",
+            caption: "I love Tame!!!",
+            posted: frida.id
+        }).then(song => {
+            frida.posts.push(song);
+            frida.save();
+            console.log("created Frida");
         });
     })
        

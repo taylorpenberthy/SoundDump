@@ -2,5 +2,15 @@
 
     <h2>Song Title: {{post.title}}</h2>
     <h2><iframe src="{{post.link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></h2>
-    <h3>Posted By: {{ post.posted.name}}</h3>
+    <h3>Posted By: {{post.posted.name}}</h3>
+
+   <div id="icons">
+    <form action="/posts/{{post._id}}?_method=delete" method="post">
+        <input type="image" src="https://cdn1.iconfinder.com/data/icons/business-office-and-internet-4-1/48/184-512.png"
+            value="Delete" width="20px" height="20px">
+        <a href="/posts/edit/{{post._id}}" id="aTag"><img id="icon"
+                src="https://image.flaticon.com/icons/svg/61/61456.svg" style="width: 25px; height: auto;" id="icon"></a>
+    </form>
+
+</div>
 </div>
