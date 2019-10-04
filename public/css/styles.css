@@ -1,0 +1,92 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+  
+    padding: 0;
+}
+
+header {
+    background-color: #F1E4E8;
+}
+h1 {
+    background-color: #F1E4E8;
+    color: #332C2E;
+    display: flex;
+    justify-content: center;
+}
+nav {
+    background-color: #F1E4E8;
+    color: #332C2E;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation {
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation:hover {
+    color: rgb(67, 86, 117);
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    flex-flow:  wrap;
+    width: 100%;
+   
+    padding: 0.5em 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+h2, h3 {
+    text-align: center;
+}
+h3 {
+    font-style: oblique;
+    font-size: 14px;
+}
+.post {
+    margin-bottom: 10px;
+    background-color: rgba(237, 218, 237, 0.7)
+  
+}
+
+
+.restCard:hover {
+    background-color: white;
+}
+
+
+
+.postCard {
+    text-decoration: none;
+    text-align: center;
+}
+
+h4 {
+    color: black;
+}
+.title {
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.title:hover {
+    color: rgb(67, 86, 117);
+}
+
+.poster {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-style: oblique;
+    font-size: 10px;
+}

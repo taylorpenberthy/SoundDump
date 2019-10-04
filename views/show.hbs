@@ -1,6 +1,7 @@
 <div class="showSong">
-
-    <h2>Song Title: {{post.title}}</h2>
+<div class="cardContainer">
+    <div class="post">
+    <h2> {{post.title}}</h2>
     <h2><iframe src="{{post.link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></h2>
     <h3>Posted By: {{post.posted.name}}</h3>
 
@@ -11,6 +12,7 @@
         <a href="/posts/edit/{{post._id}}" id="aTag"><img id="icon"
                 src="https://image.flaticon.com/icons/svg/61/61456.svg" style="width: 25px; height: auto;" id="icon"></a>
     </form>
-
+</div>
+</div>
 </div>
 </div>

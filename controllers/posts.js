@@ -18,6 +18,7 @@ router.post('/new', (req, res) => {
     })
 });
 
+
 router.put('/edit/:id', (req, res) => {
     postsModel.findOneAndUpdate({_id: req.params.id}, req.body,)
     .then(post => {
