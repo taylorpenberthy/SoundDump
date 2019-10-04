@@ -1,0 +1,18 @@
+<div class="indexpage">
+    <h1>Songs</h1>
+    
+    <div class="cardContainer">
+        <div class="post">
+        {{#each posts as |post|}}
+            <a class="restCard" href="/posts/{{post.id}}">{{post.title}}
+                <h2><iframe src="{{post.link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></h2>
+                
+                </a>
+         
+          <h4>Posted by: {{post.posted.name}}</h4>
+               
+                   
+            {{/each}}
+        </div>
+    </div>
+</div>
