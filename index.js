@@ -19,75 +19,75 @@ const postsController = require('./controllers/posts');
 const usersController = require('./controllers/users');
 
 
-var client_id = process.env.DB_ID;
-var client_secret = process.env.DB_SECRET;
+// var client_id = process.env.DB_ID;
+// var client_secret = process.env.DB_SECRET;
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id); 
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id); 
    
-});
+// });
 
 
 
-// used to deserialize the user
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
+// // used to deserialize the user
+// passport.deserializeUser(function(id, done) {
+//     User.findById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
 
-passport.use(
-    new SpotifyStrategy({
-        clientID: client_id,
-        clientSecret: client_secret,
-        callbackURL: 'http://localhost:5000/posts/new'
-    },
-    function(accessToken, refreshToken, profile, done) {
-    User.findOne({'spotify.id': profile.id}, function(err, user) {
-        if (err) {
-            return done(err);
-        }
-        if (!user) {
-            user = new User({
-                name: profile.displayName,
-                email: profile.emails[0].value,
-                username: profile.username,
-                provider: 'spotify',
-                spotify: profile._json
-            });
-            user.save(function(err) {
-                if (err) {
-                    console.log(err);
-                    return done(err, user);
-                }
+// passport.use(
+//     new SpotifyStrategy({
+//         clientID: client_id,
+//         clientSecret: client_secret,
+//         callbackURL: 'http://localhost:5000/posts/new'
+//     },
+//     function(accessToken, refreshToken, profile, done) {
+//     User.findOne({'spotify.id': profile.id}, function(err, user) {
+//         if (err) {
+//             return done(err);
+//         }
+//         if (!user) {
+//             user = new User({
+//                 name: profile.displayName,
+//                 email: profile.emails[0].value,
+//                 username: profile.username,
+//                 provider: 'spotify',
+//                 spotify: profile._json
+//             });
+//             user.save(function(err) {
+//                 if (err) {
+//                     console.log(err);
+//                     return done(err, user);
+//                 }
             
-            else {
-                return done(err, user);
-            }
-        }
+//             else {
+//                 return done(err, user);
+//             }
+//         }
 
-            )
-        }
+//             )
+//         }
         
-    });
-}
-    )
-);
+//     });
+// }
+//     )
+// );
 
-app.get('/auth/spotify', passport.authenticate('spotify', {
-    scope: ['user-read-email', 'user-read-private'],
-    showDialog: true
-}), function(req, res) {
+// app.get('/auth/spotify', passport.authenticate('spotify', {
+//     scope: ['user-read-email', 'user-read-private'],
+//     showDialog: true
+// }), function(req, res) {
   
-});
+// });
 
-app.get(
-    '/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
-    function(req, res) {
-      res.redirect('/');
-    }
-  );
+// app.get(
+//     '/callback',
+//     passport.authenticate('spotify', { failureRedirect: '/login' }),
+//     function(req, res) {
+//       res.redirect('/');
+//     }
+//   );
 
 // app.get('/', function(req, res) {
 //     res.render('indexlogin', {user: req.user})
