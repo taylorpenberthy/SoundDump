@@ -164,9 +164,13 @@ app.use('/assets', express.static('public'));
       
 // })
 
+app.set("port", process.env.PORT || 5000 )
 
+app.listen(app.get("port"), () => {
+    console.log(`✅ PORT: ${app.get("port")} 🌟`);
+  });
 
-app.listen(5000, () => console.log("Running on port 5000!"))
+// app.listen(5000, () => console.log("Running on port 5000!"))
 
 
 function ensureAuthenticated(req, res, next) {

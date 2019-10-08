@@ -12,7 +12,7 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: 'local'
 });
 
-spotifyApi.setAccessToken(' BQCGd8xH5KgQnkkOTm_9TmJQSLmm0HznPxT7PQzcvYsYAzsAbzfwLqTCgMZePlkLNlryiT5kTJkJYSuGKZ0');
+spotifyApi.setAccessToken(' BQAd5c4wa8kYHqdz80efO2kRhgD5sBkN354O3ZgGkSDMLn1LOmf750YD_ljGTqRQIDe1MMj2P2tJz53syrA');
 
 
 router.delete('/:id', (req, res) => {
@@ -76,42 +76,21 @@ router.get('/:id', (req, res) => {
 })
 
 
-
-// router.get('/songs/search', (req, res) => {
-// // res.render('search')
-
-//     song = req.query.song;
-//     if (song !== null){
-//      spotifyApi.searchTracks(song).then(
-//          function(data) {
-             
-//              res.render('search', {data});
-//          }
-//      )
-//     }
-//     else {
-//         res.render('search');
-//     }
-// }
-// )
-
- 
-
  router.get('/songs/search', (req, res) => {
-    // res.render('search')
-res.render('search');
-    song = req.query.song;
     
-    if (song !== null){
+    let song = req.query.song;
+    if (song !== undefined){
+        
         spotifyApi.searchTracks(song).then(
             function(data) {
+                
                  res.render('search', {data});
              }
          )
         }
-        // else {
-        //     res.render('search');
-        // }
+        else {
+            res.render('search');
+        }
      }
     )
     
