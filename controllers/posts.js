@@ -10,10 +10,20 @@ require('dotenv').config();
 var spotifyApi = new SpotifyWebApi({
   clientId: process.env.DB_ID,
   clientSecret: process.env.DB_SECRET,
-  redirectUri: 'local'
+  redirectUri: 'http://localhost:5000/posts/new'
 });
 
-spotifyApi.setAccessToken(process.env.DB_TOKEN);
+
+spotifyApi.clientCredentialsGrant().then(function(data) {
+    console.log('The access token expires in ' + data.body['expires_in']);
+    console.log('the access token is ' + data.body['access_token']);
+
+    spotifyApi.setAccessToken(data.body['access_token']);
+},  function(err) {
+    console.log('Something went wrong when retrieving an access token', err.message);
+  })
+
+// (spotifyApi.setAccessToken(process.env.DB_TOKEN);
 
 
 router.delete('/:id', (req, res) => {
