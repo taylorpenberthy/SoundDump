@@ -8,8 +8,10 @@
     <li>
             <a class="postCard" href="/posts/{{post.id}}"><h4 class="title">{{post.title}}</h4>
             <h7 class="poster">Posted by: {{post.posted.name}} {{post.poster}}</h7>
+            
                 <p><iframe src="{{post.link}}" width="300" height="320" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></p>
-          </a>
+          </a><p class="caption">{{post.caption}}</p>
+          
           <p class="date">{{post.date}}</p>
 
           <hr>

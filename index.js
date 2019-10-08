@@ -19,8 +19,8 @@ const postsController = require('./controllers/posts');
 const usersController = require('./controllers/users');
 
 
-var client_id = 'ad1c012acdaf423399f7c953f0bfe0f4';
-var client_secret = '3aead2ebaf2b45acbd3c66632450f697';
+var client_id = process.env.DB_ID;
+var client_secret = process.env.DB_SECRET;
 
 passport.serializeUser(function(user, done) {
     done(null, user.id); 

@@ -34,7 +34,7 @@ User.deleteMany({}).then(() => {
         Post.create({
             title: "Trophies",
             link: "https://open.spotify.com/embed/track/4FseJ7iZy0wbgJZjtddLSJ",
-            caption: "My fav song, a Trophies!!!",
+            caption: "My fav song, Trophies!!!",
             posted: lis.id
         }).then(song => {
             lis.posts.push(song);
