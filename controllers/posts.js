@@ -12,7 +12,7 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: 'local'
 });
 
-spotifyApi.setAccessToken(' BQAd5c4wa8kYHqdz80efO2kRhgD5sBkN354O3ZgGkSDMLn1LOmf750YD_ljGTqRQIDe1MMj2P2tJz53syrA');
+spotifyApi.setAccessToken(' BQAFRShatFUKVhDTxF19KN3fe787Pm-DZIU8bJ-E3Iq8dlXIzESi4rPhfaTXm5bUobO8heKgbYP2t0N26CY');
 
 
 router.delete('/:id', (req, res) => {

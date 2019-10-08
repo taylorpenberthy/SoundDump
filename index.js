@@ -7,19 +7,16 @@ const cors = require('cors');
 const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 
-app.use(parser.json());
-app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 app.set('view engine', 'hbs');
-app.use(parser.urlencoded({extended: true}));
+
 app.use(methodOverride('_method'));
 const postsController = require('./controllers/posts');
 const usersController = require('./controllers/users');
-app.use('/posts/', postsController);
-app.use('/users/', usersController);
+
 
 var client_id = 'ad1c012acdaf423399f7c953f0bfe0f4';
 var client_secret = '3aead2ebaf2b45acbd3c66632450f697';
@@ -106,65 +103,29 @@ app.get('/login', (req, res) => {
 })
 
 
-// app.get('/', (req, res) => {
-//     res.redirect('/posts/')
-// })
+
 
 
 app.use('/assets', express.static('public'));
 
 
 
-// var SpotifyWebApi = require('spotify-web-api-node');
+app.use(parser.urlencoded({extended: true}));
 
-// var spotifyApi = new SpotifyWebApi({
-//     clientId: 'ad1c012acdaf423399f7c953f0bfe0f4',
-//     clientSecret:'3aead2ebaf2b45acbd3c66632450f697',
-//     redirectUri:'http://localhost:8888/callback' 
-// })
+app.use(parser.json());
+
+app.use(cors());
+
+app.get('/', (req, res) => {
+    res.redirect('/posts/')
+})
+
+app.use('/posts/', postsController);
+app.use('/users/', usersController);
+
+app.set("port", process.env.PORT || 5000 );
 
 
-
-// spotifyApi.setAccessToken('BQBwwUUmgXLxBIZIj-NHcR6rS8Y_2AJAwW7bh1b1kuMIqrnaLFWG7bZp41PYocFfuQ6mbdK9ytNkyyyZAhNyg6Vep5VJuV4naq-WpkOnIdgdG8tSevRNOrGk8JTLAJHy5hWpXZqCigsFjqmVQ5iRErpJrRYIZ-b-fvZt');
-
-// app.apiUrl = 'https://api.spotify.com/v1';
-
-
-
-// app.get('', (req, res) => {
-//     spotifyApi.searchTracks('artist:Justin')
-//   .then(function(data) {
-//     console.log('Search tracks by "Justin" in the artist name', data.body.tracks.items);
-//   }, function(err) {
-//     console.log('Something went wrong!', err);
-//   });
-
-// })
-
-// var SpotifyWebApi = require('spotify-web-api-node');
-
-// // credentials are optional
-// var spotifyApi = new SpotifyWebApi({
-//     clientId: 'ad1c012acdaf423399f7c953f0bfe0f4',
-//     clientSecret: '3aead2ebaf2b45acbd3c66632450f697',
-//     redirectUri: 'localhost:5000/posts'
-//   });
-  
-//   spotifyApi.setAccessToken('BQC7P-Paszuy4G6f6m4bhuCQ35Iyao7LUvZ6oyC0rFRaVhKwJJiTMEdNp5TcX1lAijgD01tV2BHYL441Vgc');
-// app.get('/songs', (req, res) => {
-//     spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
-//     res.send(
-//           function(data) {
-//               data.body.items;
-//           },
-//           function(err) {
-//             console.error(err);
-//           })
-//         )
-      
-// })
-
-app.set("port", process.env.PORT || 5000 )
 
 app.listen(app.get("port"), () => {
     console.log(`✅ PORT: ${app.get("port")} 🌟`);
