@@ -10,7 +10,7 @@ User.deleteMany({}).then(() => {
 
 
     User.create({
-        name:"Big Tayla",
+        name:"Taylor",
         username: "taylor",
         email: "taylor@gmail.com"
     }).then(taylor => {
@@ -27,7 +27,7 @@ User.deleteMany({}).then(() => {
     });
 
     User.create({
-        name: "big lis",
+        name: "Big Lisa",
         username: "biglis123",
         email: "biglis@biglis.com"
     }).then(lis => {

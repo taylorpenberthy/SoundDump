@@ -1,0 +1,17 @@
+<form id="search-form" >
+    Search for a song: <input type="text" name="song" >
+    <input type="submit" value="Search" id="search">
+</form>
+<ol>
+    {{#each data.body.tracks.items as |items|}}
+<li class="songs"><a href={{items.preview_url}}>{{items.name}}</a> 
+<p>Post <a href="/posts/new">here</a></p>
+<p><a href={{items.external_urls.spotify}}>  Grab link</a></p></p></li>
+<p><img src="{{items.album.images.[0].url}}" width="300"></p>
+
+
+    {{/each}}
+</ol>
+
+<script src="app.js"></script>
+

@@ -1,9 +1,10 @@
-<div class="showSong">
+{{!-- <div class="showSong"> --}}
 <div class="cardContainer">
-    <div class="post">
+    <div class="showSong">
     <h2> {{post.title}}</h2>
     <h2><iframe src="{{post.link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></h2>
-    <h3>Posted By: {{post.posted.name}}</h3>
+    <h3>Posted By: <a href="/users/{{post.posted._id}}">{{post.posted.username}} {{post.poster}}</a></h3>
+    {{post.posted.name}}
 
    <div id="icons">
     <form action="/posts/{{post._id}}?_method=delete" method="post">

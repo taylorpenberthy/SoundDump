@@ -1,19 +1,24 @@
 <div class="indexpage">
     <div class="cardContainer">
+         <ul>
         <div class="post">
+           
         {{#each posts as |post|}}
 
+    <li>
             <a class="postCard" href="/posts/{{post.id}}"><h4 class="title">{{post.title}}</h4>
-                <p><iframe src="{{post.link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></p>
-                
-          <h4 class="poster">Posted by: {{post.posted.name}} {{post.poster}}</h4>
+            <h7 class="poster">Posted by: {{post.posted.name}} {{post.poster}}</h7>
+                <p><iframe src="{{post.link}}" width="300" height="320" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></p>
+          </a>
+          <p class="date">{{post.date}}</p>
+
           <hr>
-                </a>
-        
-               
-                   
+          </li>
+         
+      
             {{/each}}
-          
+            {{!-- <iframe src="https://p.scdn.co/mp3-preview/c8bdc870ffc6044c84f0d52306a35551fb3d0263?cid=ad1c012acdaf423399f7c953f0bfe0f4"></iframe> --}}
+          </ul>
         </div>
     </div>
 </div>

@@ -1,21 +1,31 @@
 <h2 id="edit">New Post</h2>
+<div class="newpost">
 <form action="/posts/new" method="post" accept-charset="utf-8">
   <p>
-    <label>Song Title:</label>
-    <input type="text" name="title"/>
+    {{!-- <label>Song Title:</label> --}}
+    
+    <input type="text" name="title" value="Song Title"/>
+    <h8>Search for a song? Click the link <a href="/posts/songs/search">here</a></h8>
   </p>
   <p>
-    <label>Enter the Spotify Link </label>
-    <input type="text" name="link"/>
+    {{!-- <label>Enter the Spotify Link </label> --}}
+    <input type="text" name="link" placeholder="Spotify Link"/>
   </p>
   <p>
-    <label>Who is posting this? </label>
-    <input type="text" name="poster"/>
+    {{!-- <label>Who is posting this? </label> --}}
+    <input type="text" name="poster" placeholder="WHOMST ARE YOU"/>
   </p>
+  <p>
+    
+    <input type="text" name="songId" placeholder="song ID"/>
+  </p>
+  
 
    <p>
-    <label>Caption: </label>
-    <input type="text" name="caption"/>
+    {{!-- <label>Caption: </label> --}}
+    <input type="text" name="caption" placeholder="Caption"/>
   </p>
-  <input id="createBtn" type="submit" value="Create" />
+  
+  <input id="createBtn" type="submit" placeholder="Create" />
 </form>
+</div>

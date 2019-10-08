@@ -1,5 +1,9 @@
 body {
-    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Quicksand', sans-serif; */
+    font-family: 'Shrikhand', cursive;
+    letter-spacing: 2px;
+    background-color: #ededed;
+    
 }
 
 * {
@@ -8,18 +12,36 @@ body {
     padding: 0;
 }
 
+h8 {
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+.date {
+    font-size: 10px;
+    font-family: 'Inconsolata', monospace;
+
+}
 header {
-    background-color: #F1E4E8;
+    /* background-color: #F1E4E8; */
+    background-color: #ededed;
+}
+
+.user {
+    font-family: sans-serif;
 }
 h1 {
-    background-color: #F1E4E8;
+    /* background-color: #F1E4E8; */
     color: #332C2E;
+    background-color: #ededed;
     display: flex;
     justify-content: center;
 }
 nav {
-    background-color: #F1E4E8;
-    color: #332C2E;
+    /* background-color: #F1E4E8; */
+    /* color: #332C2E; */
+    color: white;
+    background-color: #ededed;
     display: flex;
     justify-content: center;
 }
@@ -45,6 +67,13 @@ nav {
     justify-content: center;
 
 }
+
+.showSong {
+   border: 0.2px solid white;
+   background-color: #cccccc;
+    border-radius: 4px;
+    box-shadow: 4px 2px 8px 2px rgba(0,0,0,0.2)
+}
 h2, h3 {
     text-align: center;
 }
@@ -54,8 +83,67 @@ h3 {
 }
 .post {
     margin-bottom: 10px;
-    background-color: rgba(237, 218, 237, 0.7)
+    
+    border-radius: 10px;
+   
+}
+
+.newpost {
+    text-align: center;
+}
+
+#createBtn {
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+input {
+    border-radius: 10px;
+}
+
+#createBtn:hover {
+    background-color: rgb(67, 86, 117);
+    color: white;
+}
+input:focus::placeholder{
+    color:transparent;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 0 3px 0;
+  display: table;
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
   
+  border-spacing: 20px;
+}
+p {
+    padding: 10px;
+}
+li {
+    margin: 10px;
+    border: 0.4px solid white;
+    background-color: #cccccc;
+    border-radius: 4px;
+    box-shadow: 4px 2px 8px 2px rgba(0,0,0,0.2);
+}
+
+li:hover, .showSong:hover{
+    background-color:#bcd1e0;
+    cursor: pointer;
+}
+
+iframe {
+    padding: 0 30px 0 30px;
+}
+
+h7 {
+    text-decoration: none;
+    color: black;
+    
 }
 
 
@@ -71,7 +159,8 @@ h3 {
 }
 
 h4 {
-    color: black;
+    /* color: black; */
+    color: #545561;
 }
 .title {
     margin: 10px;
@@ -85,8 +174,26 @@ h4 {
 
 .poster {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     text-align: center;
-    font-style: oblique;
+    /* font-style: oblique; */
     font-size: 10px;
+    font-family: 'Inconsolata', monospace;
 }
+
+.songs {
+    background-color: #ededed;
+    font-size: 10px;
+    border: none;
+
+}
+
+.songs:hover{
+    color: rgb(67, 86, 117);
+    cursor: pointer;
+}
+
+ol {
+    font-family: sans-serif;
+}
+
