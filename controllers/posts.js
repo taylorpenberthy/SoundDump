@@ -5,14 +5,15 @@ const User = require('../models/User');
 const moment = require('moment');
 var createDate = moment();
 var SpotifyWebApi = require('spotify-web-api-node');
+require('dotenv').config();
 
 var spotifyApi = new SpotifyWebApi({
-  clientId: 'ad1c012acdaf423399f7c953f0bfe0f4',
-  clientSecret: '3aead2ebaf2b45acbd3c66632450f697',
+  clientId: process.env.DB_ID,
+  clientSecret: process.env.DB_SECRET,
   redirectUri: 'local'
 });
 
-spotifyApi.setAccessToken(' BQAFRShatFUKVhDTxF19KN3fe787Pm-DZIU8bJ-E3Iq8dlXIzESi4rPhfaTXm5bUobO8heKgbYP2t0N26CY');
+spotifyApi.setAccessToken(process.env.DB_TOKEN);
 
 
 router.delete('/:id', (req, res) => {

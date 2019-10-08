@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const cors = require('cors');
 const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
+require('dotenv').config();
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,7 +40,7 @@ passport.use(
     new SpotifyStrategy({
         clientID: client_id,
         clientSecret: client_secret,
-        callbackURL: 'http://localhost:5000/posts'
+        callbackURL: 'http://localhost:5000/posts/new'
     },
     function(accessToken, refreshToken, profile, done) {
     User.findOne({'spotify.id': profile.id}, function(err, user) {
@@ -72,7 +73,6 @@ passport.use(
 }
     )
 );
-
 
 app.get('/auth/spotify', passport.authenticate('spotify', {
     scope: ['user-read-email', 'user-read-private'],
