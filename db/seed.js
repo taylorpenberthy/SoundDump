@@ -2,13 +2,11 @@ const mongoose = require('./connection');
 
 const Post = require('../models/Post');
 const User = require('../models/User');
-// const seedData = require('./posts.json');
+
 
 User.deleteMany({}).then(() => {
     console.log('deleted all users');
     Post.deleteMany({}).then(() => console.log('deleted all posts'))
-
-
     User.create({
         name:"Taylor",
         username: "taylor",

@@ -13,97 +13,98 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: 'http://localhost:5000/posts/new'
 });
 
-
-spotifyApi.clientCredentialsGrant().then(function(data) {
+// Get new access token
+spotifyApi.clientCredentialsGrant().then(
+  function(data) {
     console.log('The access token expires in ' + data.body['expires_in']);
     console.log('the access token is ' + data.body['access_token']);
-
     spotifyApi.setAccessToken(data.body['access_token']);
-},  function(err) {
-    console.log('Something went wrong when retrieving an access token', err.message);
-  })
-
+  },
+  function(err) {
+    console.log(
+      'Something went wrong when retrieving an access token',
+      err.message
+    );
+  }
+);
 
 router.delete('/:id', (req, res) => {
-    postsModel.findOneAndDelete({_id: req.params.id}).then(() => {
-        res.redirect('/posts');
-    })
-})
+  postsModel.findOneAndDelete({ _id: req.params.id }).then(() => {
+    res.redirect('/posts');
+  });
+});
 
 router.post('/posts', (req, res) => {
-    req.body.created_at = createDate.format("dddd, MMMM Do YYYY, h:mm:ss a");
-    postsModel.create(req.body)
+  req.body.created_at = createDate.format('dddd, MMMM Do YYYY, h:mm:ss a');
+  postsModel
+    .create(req.body)
     .then(newItem => {
-        res.redirect('/posts');
-    }).catch(err => {
-        console.log(err);
-    }
-    )
+      res.redirect('/posts');
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
-
 
 router.post('/new', (req, res) => {
-    postsModel.create(req.body).then(posts => {
-        res.redirect('/posts');
-    }).catch(err => {
-        console.log(err);
+  postsModel
+    .create(req.body)
+    .then(posts => {
+      res.redirect('/posts');
     })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
-
 router.put('/edit/:id', (req, res) => {
-    postsModel.findOneAndUpdate({_id: req.params.id}, req.body,)
+  postsModel
+    .findOneAndUpdate({ _id: req.params.id }, req.body)
     .then(post => {
-        res.redirect('/posts')
-    }) .catch(err => {
-        console.log(err);
+      res.redirect('/posts');
     })
-})
+    .catch(err => {
+      console.log(err);
+    });
+});
 router.get('/', (req, res) => {
-    postsModel.find({}).populate('posted').then(posts => {
-        res.render("index", {posts});
-    })
-})
-
-
+  postsModel
+    .find({})
+    .populate('posted')
+    .then(posts => {
+      res.render('index', { posts });
+    });
+});
 
 router.get('/edit/:id', (req, res) => {
-    postsModel.findOne({_id: req.params.id})
-    .then(post => {
-        res.render('edit', {post});
-    })
-})
+  postsModel.findOne({ _id: req.params.id }).then(post => {
+    res.render('edit', { post });
+  });
+});
 
 router.get('/new', (req, res) => {
-    res.render('new');
-})
+  res.render('new');
+});
 
 router.get('/:id', (req, res) => {
-    postsModel.findOne({_id: req.params.id}).populate('posted').then(post => {
-        res.render("show", {post})
-    })
-})
+  postsModel
+    .findOne({ _id: req.params.id })
+    .populate('posted')
+    .then(post => {
+      res.render('show', { post });
+    });
+});
 
+// Search Spotify API to retrieve songs 
+router.get('/songs/search', (req, res) => {
+  let song = req.query.song;
+  if (song !== undefined) {
+    spotifyApi.searchTracks(song).then(function(data) {
+      res.render('search', {data});
+    });
+  } else {
+    res.render('search');
+  }
+});
 
- router.get('/songs/search', (req, res) => {
-    
-    let song = req.query.song;
-    if (song !== undefined){
-        
-        spotifyApi.searchTracks(song).then(
-            function(data) {
-                
-                 res.render('search', {data});
-             }
-         )
-        }
-        else {
-            res.render('search');
-        }
-     }
-    )
-    
-
-
-    
 module.exports = router;
