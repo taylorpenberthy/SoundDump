@@ -31,13 +31,25 @@ header {
 .user {
     font-family: sans-serif;
 }
+
+.header {
+    padding: 0px;
+    
+}
 h1 {
-    /* background-color: #F1E4E8; */
+
+
+border: .25px solid black;
+
     color: crimson;
-    /* color: #332C2E; */
+    
     background-color: #ededed;
     display: flex;
+
+    text-align: center;
+
     justify-content: center;
+  
 }
 nav {
     /* background-color: #F1E4E8; */
@@ -220,6 +232,10 @@ ol {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
 }
 
 html, body {
