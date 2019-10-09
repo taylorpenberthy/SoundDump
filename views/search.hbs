@@ -1,8 +1,21 @@
 <form id="search-form" >
-    Search for a song: <input type="text" name="song" >
-    <input type="submit" value="Search" id="search">
+    <div class="container">
+    <form id="search-form"></form>
+  <input id="search" type="text" placeholder="Search..." name="song">
+  {{!-- </form> --}}
+  <div class="search"></div>
+{{!-- </div>
+    Search for a song: <input type="text" name="song" id="yeet" >
+    <input type="submit" value="Search" id="search1"> --}}
 </form>
+{{!-- <div class="container">
+    <form id="search-form"></form>
+  <input id="search" type="text" placeholder="Search..." name="song">
+  </form>
+  <div class="search"></div>
+</div> --}}
 
+<div class="page">
 <ol>
     {{#each data.body.tracks.items as |items|}}
     <p><img src="{{items.album.images.[0].url}}" width="300"></p>
@@ -14,5 +27,5 @@
         <p><a href={{items.external_urls.spotify}}>  Grab link</a></p></p></li>
     {{/each}}
 </ol>
-
+</div>
 
