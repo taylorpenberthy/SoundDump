@@ -95,12 +95,12 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Search Spotify API to retrieve songs 
+// Search Spotify API to retrieve songs
 router.get('/songs/search', (req, res) => {
   let song = req.query.song;
   if (song !== undefined) {
     spotifyApi.searchTracks(song).then(function(data) {
-      res.render('search', {data});
+      res.render('search', { data });
     });
   } else {
     res.render('search');
