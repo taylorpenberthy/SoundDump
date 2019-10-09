@@ -3,15 +3,15 @@
 <form action="/posts/edit/{{post._id}}?_method=put" method="post">
   <p>
     <label>Change Song Title:</label>
-    <input type="text" value="{{post.title}}" name="title"/>
+    <input type="text" value="{{post.title}}" name="title" />
   </p>
-   <p>
+  <p>
     <label>Change Spotify Link:</label>
-    <input type="text" value="{{post.link}}" name="link"/>
+    <input type="text" value="{{post.link}}" name="link" />
   </p>
-   <p>
+  <p>
     <label>Change Who Posted:</label>
-    <input type="text" value="{{post.poster}}" name="poster"/>
+    <input type="text" value="{{post.poster}}" name="poster" />
   </p>
   <input type="submit" value="Update" />
 </form>

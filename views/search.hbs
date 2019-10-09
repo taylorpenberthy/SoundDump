@@ -1,24 +1,25 @@
-<form id="search-form" >
+<form id="search-form">
     <div class="container">
-    <form id="search-form"></form>
-  <input id="search" type="text" placeholder="Search..." name="song">
-  {{!-- </form> --}}
-  <div class="search"></div>
+        <form id="search-form"></form>
+        <input id="search" type="text" placeholder="Search..." name="song">
+        {{!-- </form> --}}
+        <div class="search"></div>
 
 </form>
 
 
 <div class="page">
-<ol>
-    {{#each data.body.tracks.items as |items|}}
-    <p><img src="{{items.album.images.[0].url}}" width="300"></p>
+    <ol>
+        {{#each data.body.tracks.items as |items|}}
+        <p><img src="{{items.album.images.[0].url}}" width="300"></p>
 
-    <li class="songs">{{items.name}} 
-        <a href={{items.preview_url}}>(click to preview)</a> 
-        <p>Artist: {{items.album.artists.[0].name}}</p>
-        <p>Post <a href="/posts/new">here</a></p>
-        <p><a href={{items.external_urls.spotify}}>  Grab link</a></p></p></li>
-    {{/each}}
-</ol>
+        <li class="songs">{{items.name}}
+            <a href={{items.preview_url}}>(click to preview)</a>
+            <p>Artist: {{items.album.artists.[0].name}}</p>
+            <p>Post <a href="/posts/new">here</a></p>
+            <p><a href={{items.external_urls.spotify}}> Grab link</a></p>
+            </p>
+        </li>
+        {{/each}}
+    </ol>
 </div>
-
