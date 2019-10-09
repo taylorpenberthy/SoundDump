@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === "production") {
   } else {
     mongoURI = "mongodb://localhost/sounddump";
   }
-// mongoose.connect('mongodb://localhost/songity', { useNewUrlParser: true });
+
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })

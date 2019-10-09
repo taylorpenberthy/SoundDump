@@ -23,8 +23,6 @@ spotifyApi.clientCredentialsGrant().then(function(data) {
     console.log('Something went wrong when retrieving an access token', err.message);
   })
 
-// (spotifyApi.setAccessToken(process.env.DB_TOKEN);
-
 
 router.delete('/:id', (req, res) => {
     postsModel.findOneAndDelete({_id: req.params.id}).then(() => {
