@@ -76,7 +76,7 @@ nav {
     flex-direction: column;
     flex-flow:  wrap;
     width: 100%;
-   
+   justify-content: space-between;
     padding: 0.5em 0;
     flex-wrap: wrap;
     justify-content: center;
@@ -98,7 +98,9 @@ h3 {
 }
 .post {
     margin-bottom: 10px;
-    
+   display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
     border-radius: 10px;
    
 }
@@ -162,7 +164,8 @@ li:hover, .showSong:hover, .title:hover, .postCard:hover, .poster:hover{
 }
 
 iframe {
-    padding: 0 30px 0 30px;
+    padding: 0;
+    /* padding: 0 30px 0 30px; */
 }
 
 h7 {
@@ -182,7 +185,6 @@ h4 {
     margin: 10px;
     text-align: center;
 }
-
 
 .poster {
     margin: 0;
