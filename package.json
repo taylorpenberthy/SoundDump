@@ -18,7 +18,7 @@
     "express-session": "^1.16.2",
     "hbs": "^4.0.5",
     "method-override": "^3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.7.4",
     "passport": "^0.4.0",
     "passport-spotify": "^1.1.0",
